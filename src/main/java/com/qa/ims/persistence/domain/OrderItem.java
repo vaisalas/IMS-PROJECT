@@ -77,10 +77,10 @@ public class OrderItem {
 				return false;
 		} else if (!id.equals(other.id))
 			return false;
-		if (Orderid == null) {
-			if (other.Orderid != null)
+		if (itemId == null) {
+			if (other.itemId != null)
 				return false;
-		} else if (!Orderid.equals(other.Orderid))
+		} else if (!itemId.equals(other.itemId))
 			return false;
 		return true;
 	}
