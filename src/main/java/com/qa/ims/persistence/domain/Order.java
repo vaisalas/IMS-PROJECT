@@ -1,61 +1,69 @@
 package com.qa.ims.persistence.domain;
 
-import java.util.List;
-
 public class Order {
-	
+
 	private Long id;
-	private Customer customer;
-	private List<Item> items;
+	private Long customersId;
+	private Long itemId;
 
-	public Order(Customer customer, List<Item> items) {
-		this.setCustomer(customer);
-		this.setItems(items);
+	public Order(Long id, Long customersId) {
+		this.id = id;
+		this.customersId = customersId;
 	}
 
-	public Order(Long id, Customer customer, List<Item> items) {
-		this.setId(id);
-		this.setCustomer(customer);
-		this.setItems(items);
+	public Order(Long id, Long customersId, Long itemId) {
+		this.id = id;
+		this.customersId = customersId;
+		this.itemId = itemId;
 	}
 
-	public long getId() {
+//	public Order(Long customerId, Long itemId) {
+//		super();
+//		this.customerId = customerId;
+//		this.Itemid = Itemid;
+//	}	
+
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(long id) {
+	public Order(Long customersId) {
+		super();
+		this.customersId = customersId;
+	}
+
+	public void setId(Long id) {
 		this.id = id;
 	}
 
-	public Customer getCustomer() {
-		return customer;
+	public Long getCustomerId() {
+		return customersId;
 	}
 
-	public void setCustomer(Customer customer) {
-		this.customer = customer;
+	public void setCustomerId(Long customerId) {
+		this.customersId = customerId;
 	}
 
-	public List<Item> getItems() {
-		return items;
+	public Long getItemId() {
+		return itemId;
 	}
 
-	public void setItems(List<Item> items) {
-		this.items = items;
+	public void setItemId(Long itemId) {
+		this.itemId = itemId;
 	}
 
 	@Override
 	public String toString() {
-		return "Order [id = " + id + ", customer = " + customer + ", items = " + items + "]";
+		return "Order [id=" + id + ", customersId=" + customersId + ", itemId=" + itemId + "]";
 	}
 
-	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((customer == null) ? 0 : customer.hashCode());
+		result = prime * result + ((customersId == null) ? 0 : customersId.hashCode());
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
-		result = prime * result + ((items == null) ? 0 : items.hashCode());
+		result = prime * result + ((itemId == null) ? 0 : itemId.hashCode());
 		return result;
 	}
 
@@ -68,20 +76,20 @@ public class Order {
 		if (getClass() != obj.getClass())
 			return false;
 		Order other = (Order) obj;
-		if (getCustomer() == null) {
-			if (other.getCustomer() != null)
+		if (getCustomerId() == null) {
+			if (other.getCustomerId() != null)
 				return false;
-		} else if (!getCustomer().equals(other.getCustomer()))
+		} else if (!getCustomerId().equals(other.getCustomerId()))
 			return false;
 		if (id == null) {
 			if (other.id != null)
 				return false;
 		} else if (!id.equals(other.id))
 			return false;
-		if (items == null) {
-			if (other.items != null)
+		if (itemId == null) {
+			if (other.itemId != null)
 				return false;
-		} else if (!items.equals(other.items))
+		} else if (!itemId.equals(other.itemId))
 			return false;
 		return true;
 	}

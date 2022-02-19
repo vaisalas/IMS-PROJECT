@@ -8,17 +8,14 @@ public class Item {
 
 	public Item(String name, Double price) {
 		this.setName(name);
-		;
 		this.setPrice(price);
-		;
+	
 	}
 
 	public Item(Long id, String name, Double price) {
 		this.setId(id);
 		this.setName(name);
-		;
 		this.setPrice(price);
-		;
 	}
 
 	public Long getId() {
