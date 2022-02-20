@@ -15,7 +15,7 @@ VALUES
   ("Dear John","7.00"),
   ("The Notebook","6.49");
   
-INSERT INTO `orders` (`customers_id`)
+INSERT INTO `orders` (`fk_customers_id`)
 VALUES
 ("1"),
 ("2"),
@@ -23,7 +23,7 @@ VALUES
 ("3"),
 ("3");
 
-INSERT INTO `orderitem`(`orders_id`,`items_id`)
+INSERT INTO `orderitem`(`fk_orders_id`,`fk_items_id`)
 VALUES
 ("1" , "3"),
 ("2" , "3"),
