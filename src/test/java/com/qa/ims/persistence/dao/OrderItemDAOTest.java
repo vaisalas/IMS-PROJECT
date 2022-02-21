@@ -9,12 +9,13 @@ import org.junit.Before;
 import org.junit.Test;
 
 import com.qa.ims.persistence.domain.Customer;
+import com.qa.ims.persistence.domain.OrderItem;
 import com.qa.ims.utils.DBUtils;
 
-public class CustomerDAOTest {
+public class OrderItemDAOTest {
 
-	private final CustomerDAO DAO = new CustomerDAO();
-
+	private final OrderItemDAO DAO = new OrderItemDAO();
+	
 	@Before
 	public void setup() {
 		DBUtils.connect();
@@ -23,36 +24,30 @@ public class CustomerDAOTest {
 
 	@Test
 	public void testCreate() {
-		final Customer created = new Customer(1L, "Emerson", "Prince");
+		final OrderItem created = new OrderItem(1L, 3L, 1L);
 		assertEquals(created, DAO.create(created));
 	}
-
+	
 	@Test
 	public void testReadAll() {
-		List<Customer> expected = new ArrayList<>();
-		expected.add(new Customer(1L, "Amethyst", "Howard"));
-		expected.add(new Customer(2L, "Hedy", "Shannon"));
+		List<OrderItem> expected = new ArrayList<>();
+		expected.add(new OrderItem(1L, 1L, 3L));
+		expected.add(new OrderItem(2L, 2L, 3L));
 		assertEquals(expected, DAO.readAll());
 	}
-
+	
 	@Test
 	public void testReadLatest() {
-		assertEquals(new Customer(1L, "Amethyst", "harrison"), DAO.readLatest());
+		assertEquals(new OrderItem(3L, 1L, 1L), DAO.readLatest());
 	}
-
-	@Test
-	public void testRead() {
-		final long ID = 1L;
-		assertEquals(new Customer(ID, "Amethyst", "harrison"), DAO.read(ID));
-	}
-
+	
 	@Test
 	public void testUpdate() {
-		final Customer updated = new Customer(2L, "Hedy", "Shannon");
+		final OrderItem updated = new OrderItem(4L, 3L, 4L);
 		assertEquals(updated, DAO.update(updated));
 
 	}
-
+	
 	@Test
 	public void testDelete() {
 		assertEquals(1, DAO.delete(1));

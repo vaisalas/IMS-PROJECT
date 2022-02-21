@@ -111,6 +111,8 @@ public class ItemDAO implements Dao<Item> {
 				PreparedStatement statement = connection.prepareStatement("DELETE FROM items WHERE items_id = ?");) {
 			statement.setLong(1, id);
 			return statement.executeUpdate();
+			
+			
 		} catch (Exception e) {
 			LOGGER.debug(e);
 			LOGGER.error(e.getMessage());
