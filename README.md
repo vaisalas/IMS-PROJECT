@@ -1,7 +1,7 @@
-Coverage: 34%
-# Project Title
+Coverage: 62%
+# Inventory Management System 
 
-One Paragraph of project description goes here
+This program is an Inventory Management System which can be used to manage Customers, Store items and Orders. This is achieved CRUD functionality.
 
 ## Getting Started
 
@@ -9,10 +9,13 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Prerequisites
 
-What things you need to install the software and how to install them
+To run this program make sure you have these programs installed.
 
 ```
-Give examples
+Java
+Maven
+MySQL Workbench
+Eclipse
 ```
 
 ### Installing
@@ -22,16 +25,15 @@ A step by step series of examples that tell you how to get a development env run
 Say what the step will be
 
 ```
-Give the example
+1.Clone this project through Git down to your Eclipse Workspace
 ```
 
-And repeat
+2.Update your own MySQL login detail under DB Properties - where you have Run some data in the schema
 
 ```
-until finished
+3.Run the program and follow the instruction on the console
 ```
 
-End with an example of getting some data out of the system or using it for a little demo
 
 ## Running the tests
 
@@ -39,30 +41,25 @@ Explain how to run the automated tests for this system. Break down into which te
 
 ### Unit Tests 
 
-Explain what these tests test, why and how to run them
+This test tests smaller sections of the codes to recognise potential issues. this test can be run as 
+JUunit test (Ctrl + Shift + X,T)
 
 ```
-Give an example
+	@Test
+	public void testCreate() {
+		final String F_NAME = "barry", L_NAME = "scott";
+		final Customer created = new Customer(F_NAME, L_NAME);
+
+		Mockito.when(utils.getString()).thenReturn(F_NAME, L_NAME);
+		Mockito.when(dao.create(created)).thenReturn(created);
+
+		assertEquals(created, controller.create());
+
+		Mockito.verify(utils, Mockito.times(2)).getString();
+		Mockito.verify(dao, Mockito.times(1)).create(created);
+	}
 ```
 
-### Integration Tests 
-Explain what these tests test, why and how to run them
-
-```
-Give an example
-```
-
-### And coding style tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-## Deployment
-
-Add additional notes about how to deploy this on a live system
 
 ## Built With
 
@@ -75,7 +72,7 @@ We use [SemVer](http://semver.org/) for versioning.
 ## Authors
 
 * **Chris Perrins** - *Initial work* - [christophperrins](https://github.com/christophperrins)
-
+* **Vaisala Sivanesakumar** - *Updated Project*
 ## License
 
 This project is licensed under the MIT license - see the [LICENSE.md](LICENSE.md) file for details 
@@ -84,6 +81,4 @@ This project is licensed under the MIT license - see the [LICENSE.md](LICENSE.md
 
 ## Acknowledgments
 
-* Hat tip to anyone whose code was used
-* Inspiration
-* etc
+QA LTD Trainers

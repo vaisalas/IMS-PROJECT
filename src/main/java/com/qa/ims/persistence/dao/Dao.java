@@ -17,4 +17,12 @@ public interface Dao<T> {
 	int delete(long id);
 
 	T modelFromResultSet(ResultSet resultSet) throws SQLException;
+
+	/**
+	 * Deletes a orderitem in the database
+	 * 
+	 * @param id - id of the orderitem
+	 * @param itemId 
+	 */
+	
 }
