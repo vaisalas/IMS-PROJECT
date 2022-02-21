@@ -1,4 +1,4 @@
-Coverage: 62%
+Coverage: 65%
 # Inventory Management System 
 
 This program is an Inventory Management System which can be used to manage Customers, Store items and Orders. This is achieved CRUD functionality.
