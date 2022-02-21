@@ -9,12 +9,15 @@ import org.junit.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
+import org.mockito.junit.MockitoJUnitRunner;
+import org.junit.runner.RunWith;
 
 import com.qa.ims.controller.OrderController;
 import com.qa.ims.persistence.dao.OrderDAO;
 import com.qa.ims.persistence.domain.Order;
 import com.qa.ims.utils.Utils;
 
+@RunWith(MockitoJUnitRunner.class)
 public class OrderControllerTest {
 
 	@Mock
@@ -38,7 +41,7 @@ public class OrderControllerTest {
 
 		assertEquals(created, controller.create());
 
-		Mockito.verify(utils, Mockito.times(2)).getLong();
+		Mockito.verify(utils, Mockito.times(1)).getLong();
 		Mockito.verify(dao, Mockito.times(1)).create(created);
 	}
 
@@ -64,18 +67,18 @@ public class OrderControllerTest {
 
 		assertEquals(updated, this.controller.update());
 
-		Mockito.verify(this.utils, Mockito.times(1)).getLong();
+		Mockito.verify(this.utils, Mockito.times(3)).getLong();
 		Mockito.verify(this.dao, Mockito.times(1)).update(updated);
 	}
 
 	@Test
 	public void testDelete() {
-		final long ID = 2L;
+		final long ID = 1L;
 
 		Mockito.when(utils.getLong()).thenReturn(ID);
 		Mockito.when(dao.delete(ID)).thenReturn(1);
 
-		assertEquals(2L, this.controller.delete());
+		assertEquals(1L, this.controller.delete());
 
 		Mockito.verify(utils, Mockito.times(1)).getLong();
 		Mockito.verify(dao, Mockito.times(1)).delete(ID);
