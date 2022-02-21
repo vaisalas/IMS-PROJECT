@@ -16,12 +16,7 @@ public class Order {
 		this.customersId = customersId;
 		this.itemId = itemId;
 	}
-
-//	public Order(Long customerId, Long itemId) {
-//		super();
-//		this.customerId = customerId;
-//		this.Itemid = Itemid;
-//	}	
+	
 
 	public Long getId() {
 		return id;
@@ -44,13 +39,13 @@ public class Order {
 		this.customersId = customerId;
 	}
 
-	public Long getItemId() {
-		return itemId;
-	}
+//	public Long getItemId() {
+//		return itemId;
+//	}
 
-	public void setItemId(Long itemId) {
-		this.itemId = itemId;
-	}
+//	public void setItemId(Long itemId) {
+//		this.itemId = itemId;
+//	}
 
 	@Override
 	public String toString() {

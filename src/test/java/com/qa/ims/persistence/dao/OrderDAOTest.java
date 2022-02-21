@@ -8,7 +8,6 @@ import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.qa.ims.persistence.domain.Item;
 import com.qa.ims.persistence.domain.Order;
 import com.qa.ims.utils.DBUtils;
 
@@ -31,8 +30,8 @@ public class OrderDAOTest {
 
 	@Test
 	public void testReadAll() {
-		List<Item> expected = new ArrayList<>();
-		expected.add(new Order(3L, 3L, 4L));
+		List<Order> expected = new ArrayList<>();
+		expected.add(new Order(1L, 1L, 1L));
 		assertEquals(expected, DAO.readAll());
 	}
 
@@ -43,19 +42,19 @@ public class OrderDAOTest {
 
 	@Test
 	public void testRead() {
-		final long ID = 3L;
-		assertEquals(new Order(ID, 4L , 3L ), DAO.read(ID));
+		final long ID = 1L;
+		assertEquals(new Order(ID, 1L , 1L ), DAO.read(ID));
 	}
 
 	@Test
 	public void testUpdate() {
-		final Order updated = new Order(3L, 3L, 4L);
+		final Order updated = new Order(2L, 3L, 4L);
 		assertEquals(updated, DAO.update(updated));
 
 	}
 
 	@Test
 	public void testDelete() {
-		assertEquals(1, DAO.delete(1));
+		assertEquals(2, DAO.delete(1));
 	}
 }

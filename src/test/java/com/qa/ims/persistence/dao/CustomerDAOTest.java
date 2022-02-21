@@ -18,14 +18,14 @@ public class CustomerDAOTest {
 	@Before
 	public void setup() {
 		DBUtils.connect();
-		DBUtils.getInstance().init("src/test/resources/sql-schema.sql", "src/test/resources/sql-data.sql");
+		DBUtils.getInstance().init("src/test/resources/sql-schema test.sql", "src/test/resources/sql-data test.sql");
 	}
 
 	@Test
 	public void testCreate() {
 		final Customer created = new Customer(1L, "Emerson", "Prince");
 		assertEquals(created, DAO.create(created));
-	}
+	} 
 
 	@Test
 	public void testReadAll() {
@@ -48,13 +48,13 @@ public class CustomerDAOTest {
 
 	@Test
 	public void testUpdate() {
-		final Customer updated = new Customer(2L, "Hedy", "Shannon");
+		final Customer updated = new Customer(1L, "Hedy", "Shannon");
 		assertEquals(updated, DAO.update(updated));
 
 	}
 
 	@Test
 	public void testDelete() {
-		assertEquals(1, DAO.delete(1));
+		assertEquals(0, DAO.delete(0));
 	}
 }

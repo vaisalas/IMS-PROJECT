@@ -1,4 +1,9 @@
 use ims;
+DROP TABLE IF EXISTS customers;
+DROP TABLE IF EXISTS items;
+DROP TABLE IF EXISTS orders;
+DROP TABLE IF EXISTS orderitem;
+
 
 INSERT INTO `customers` (`first_name`,`surname`)
 VALUES

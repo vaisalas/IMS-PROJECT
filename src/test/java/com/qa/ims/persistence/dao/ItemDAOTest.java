@@ -26,7 +26,7 @@ public class ItemDAOTest {
 		final Item created = new Item(2L, "Rogue Lawyer", 6.99);
 		assertEquals(created, DAO.create(created));
 	}
-
+ 
 	@Test
 	public void testReadAll() {
 		List<Item> expected = new ArrayList<>();

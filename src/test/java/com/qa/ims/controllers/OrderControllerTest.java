@@ -9,12 +9,16 @@ import org.junit.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
+import org.mockito.junit.MockitoJUnitRunner;
+import org.junit.runner.RunWith;
 
 import com.qa.ims.controller.OrderController;
 import com.qa.ims.persistence.dao.OrderDAO;
 import com.qa.ims.persistence.domain.Order;
 import com.qa.ims.utils.Utils;
 
+
+@RunWith(MockitoJUnitRunner.class)
 public class OrderControllerTest {
 
 	@Mock
@@ -30,7 +34,7 @@ public class OrderControllerTest {
 	
 	@Test
 	public void testCreate() {
-		final Long customer_id = 3L;
+		final Long customer_id = 2L;
 		final Order created = new Order(customer_id);
 
 		Mockito.when(utils.getLong()).thenReturn(customer_id);
@@ -38,7 +42,7 @@ public class OrderControllerTest {
 
 		assertEquals(created, controller.create());
 
-		Mockito.verify(utils, Mockito.times(2)).getLong();
+		Mockito.verify(utils, Mockito.times(1)).getLong();
 		Mockito.verify(dao, Mockito.times(1)).create(created);
 	}
 
@@ -56,26 +60,26 @@ public class OrderControllerTest {
 
 	@Test
 	public void testUpdate() {
-		Order updated = new Order(5L, 5L, 3L);
+		Order updated = new Order(1L, 1L, 1L);
 
-		Mockito.when(this.utils.getLong()).thenReturn(5L);
+		Mockito.when(this.utils.getLong()).thenReturn(1L);
 		Mockito.when(this.utils.getLong()).thenReturn(updated.getId(), updated.getCustomerId());
 		Mockito.when(this.dao.update(updated)).thenReturn(updated);
 
 		assertEquals(updated, this.controller.update());
 
-		Mockito.verify(this.utils, Mockito.times(1)).getLong();
+		Mockito.verify(this.utils, Mockito.times(3)).getLong();
 		Mockito.verify(this.dao, Mockito.times(1)).update(updated);
 	}
 
 	@Test
 	public void testDelete() {
-		final long ID = 2L;
+		final long ID = 1L;
 
 		Mockito.when(utils.getLong()).thenReturn(ID);
 		Mockito.when(dao.delete(ID)).thenReturn(1);
 
-		assertEquals(2L, this.controller.delete());
+		assertEquals(1L, this.controller.delete());
 
 		Mockito.verify(utils, Mockito.times(1)).getLong();
 		Mockito.verify(dao, Mockito.times(1)).delete(ID);
