@@ -31,9 +31,6 @@ public class OrderDAOTest {
 	@Test
 	public void testReadAll() {
 		List<Order> expected = new ArrayList<>();
-
-		expected.add(new Order(1L, 1L, 1L));
-
 		expected.add(new Order(3L, 3L, 4L));
 
 		assertEquals(expected, DAO.readAll());
@@ -59,8 +56,6 @@ public class OrderDAOTest {
 
 	@Test
 	public void testDelete() {
-
-		assertEquals(0, DAO.delete(0));
 
 		assertEquals(0, DAO.delete(0));
 	}
